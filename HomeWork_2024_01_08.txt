@@ -1,0 +1,27 @@
+//1.Вывести имена юзеров не из France
+
+db.users.find(
+{country:{$ne:'France'}},
+)
+
+//2.Добавить несколько реакций на треки
+db.tracks.updateOne(
+{_id:2},
+{$push: {reactions:['reactions2', 'reactions3']}}
+)
+
+//db.tracks.find()
+
+//3.Вывести названия треков продолжительностью от 1 до 10 мин
+db.tracks.find(
+{duration_secs:{$gte:1*60}, duration_secs:{$lte:10*60}}
+)
+
+//4.Вывести треки юзера 4
+db.tracks.find(
+{_id:4},
+{title:1, _id:0}
+)
+
+//5.С помощью инструмента онлайн-проектирования описать БД music (юзеры, треки, реакции, плейлисты)
+https://dbdiagram.io/d/659c416aac844320ae7adbb2
